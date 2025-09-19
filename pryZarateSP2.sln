@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.35027.167
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "pryZarateSP2", "pryZarateSP2\pryZarateSP2.csproj", "{B3EBD9B2-8CEE-4FD9-8493-B0194F99EDBD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B3EBD9B2-8CEE-4FD9-8493-B0194F99EDBD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B3EBD9B2-8CEE-4FD9-8493-B0194F99EDBD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B3EBD9B2-8CEE-4FD9-8493-B0194F99EDBD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B3EBD9B2-8CEE-4FD9-8493-B0194F99EDBD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {78108DBA-9BC0-4E63-B85A-17278D78325D}
+	EndGlobalSection
+EndGlobal
