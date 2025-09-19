@@ -21,5 +21,10 @@ namespace pryZarateSP2
         {
 
         }
+
+        private void txtDiastxtDias_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

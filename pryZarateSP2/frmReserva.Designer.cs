@@ -42,15 +42,19 @@
             txtTelefono = new TextBox();
             btnAceptar = new Button();
             backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            chkCocina = new CheckBox();
+            chkHeladera = new CheckBox();
+            chkTelevisor = new CheckBox();
             SuspendLayout();
             // 
             // txtDiastxtDias
             // 
             txtDiastxtDias.BackColor = Color.BurlyWood;
-            txtDiastxtDias.Location = new Point(575, 98);
+            txtDiastxtDias.Location = new Point(575, 103);
             txtDiastxtDias.Name = "txtDiastxtDias";
             txtDiastxtDias.Size = new Size(100, 23);
             txtDiastxtDias.TabIndex = 0;
+            txtDiastxtDias.TextChanged += txtDiastxtDias_TextChanged;
             // 
             // lblDias
             // 
@@ -85,30 +89,30 @@
             // lblTipoCabaña
             // 
             lblTipoCabaña.AutoSize = true;
-            lblTipoCabaña.Font = new Font("Nirmala UI", 14.25F, FontStyle.Bold);
-            lblTipoCabaña.Location = new Point(43, 35);
+            lblTipoCabaña.Font = new Font("Nirmala UI", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblTipoCabaña.Location = new Point(42, 24);
             lblTipoCabaña.Name = "lblTipoCabaña";
-            lblTipoCabaña.Size = new Size(147, 25);
+            lblTipoCabaña.Size = new Size(188, 32);
             lblTipoCabaña.TabIndex = 4;
             lblTipoCabaña.Text = "Tipo de cabaña";
             // 
             // lblAdicionales
             // 
             lblAdicionales.AutoSize = true;
-            lblAdicionales.Font = new Font("Nirmala UI Semilight", 12F);
+            lblAdicionales.Font = new Font("Nirmala UI", 14.25F, FontStyle.Bold);
             lblAdicionales.Location = new Point(43, 164);
             lblAdicionales.Name = "lblAdicionales";
-            lblAdicionales.Size = new Size(89, 21);
+            lblAdicionales.Size = new Size(113, 25);
             lblAdicionales.TabIndex = 5;
             lblAdicionales.Text = "Adicionales";
             // 
             // lblFormasPago
             // 
             lblFormasPago.AutoSize = true;
-            lblFormasPago.Font = new Font("Nirmala UI Semilight", 12F);
-            lblFormasPago.Location = new Point(234, 164);
+            lblFormasPago.Font = new Font("Nirmala UI", 14.25F, FontStyle.Bold);
+            lblFormasPago.Location = new Point(291, 164);
             lblFormasPago.Name = "lblFormasPago";
-            lblFormasPago.Size = new Size(120, 21);
+            lblFormasPago.Size = new Size(155, 25);
             lblFormasPago.TabIndex = 6;
             lblFormasPago.Text = "Formas de pago";
             // 
@@ -116,7 +120,7 @@
             // 
             lblNombre.AutoSize = true;
             lblNombre.Font = new Font("Nirmala UI Semilight", 12F);
-            lblNombre.Location = new Point(43, 302);
+            lblNombre.Location = new Point(43, 330);
             lblNombre.Name = "lblNombre";
             lblNombre.Size = new Size(66, 21);
             lblNombre.TabIndex = 7;
@@ -126,7 +130,7 @@
             // 
             lblTitular.AutoSize = true;
             lblTitular.Font = new Font("Nirmala UI", 14.25F, FontStyle.Bold);
-            lblTitular.Location = new Point(43, 267);
+            lblTitular.Location = new Point(43, 295);
             lblTitular.Name = "lblTitular";
             lblTitular.Size = new Size(187, 25);
             lblTitular.TabIndex = 8;
@@ -136,7 +140,7 @@
             // 
             lblTelefono.AutoSize = true;
             lblTelefono.Font = new Font("Nirmala UI Semilight", 12F);
-            lblTelefono.Location = new Point(43, 340);
+            lblTelefono.Location = new Point(43, 368);
             lblTelefono.Name = "lblTelefono";
             lblTelefono.Size = new Size(68, 21);
             lblTelefono.TabIndex = 9;
@@ -145,7 +149,7 @@
             // txtNombre
             // 
             txtNombre.BackColor = Color.BurlyWood;
-            txtNombre.Location = new Point(127, 302);
+            txtNombre.Location = new Point(127, 330);
             txtNombre.Name = "txtNombre";
             txtNombre.Size = new Size(295, 23);
             txtNombre.TabIndex = 10;
@@ -153,7 +157,7 @@
             // txtTelefono
             // 
             txtTelefono.BackColor = Color.BurlyWood;
-            txtTelefono.Location = new Point(127, 340);
+            txtTelefono.Location = new Point(127, 368);
             txtTelefono.Name = "txtTelefono";
             txtTelefono.Size = new Size(295, 23);
             txtTelefono.TabIndex = 11;
@@ -169,12 +173,48 @@
             btnAceptar.Text = "Aceptar";
             btnAceptar.UseVisualStyleBackColor = false;
             // 
+            // chkCocina
+            // 
+            chkCocina.AutoSize = true;
+            chkCocina.Font = new Font("Nirmala UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            chkCocina.Location = new Point(48, 194);
+            chkCocina.Name = "chkCocina";
+            chkCocina.Size = new Size(76, 25);
+            chkCocina.TabIndex = 13;
+            chkCocina.Text = "Cocina";
+            chkCocina.UseVisualStyleBackColor = true;
+            // 
+            // chkHeladera
+            // 
+            chkHeladera.AutoSize = true;
+            chkHeladera.Font = new Font("Nirmala UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            chkHeladera.Location = new Point(47, 225);
+            chkHeladera.Name = "chkHeladera";
+            chkHeladera.Size = new Size(91, 25);
+            chkHeladera.TabIndex = 14;
+            chkHeladera.Text = "Heladera";
+            chkHeladera.UseVisualStyleBackColor = true;
+            // 
+            // chkTelevisor
+            // 
+            chkTelevisor.AutoSize = true;
+            chkTelevisor.Font = new Font("Nirmala UI", 12F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            chkTelevisor.Location = new Point(47, 256);
+            chkTelevisor.Name = "chkTelevisor";
+            chkTelevisor.Size = new Size(89, 25);
+            chkTelevisor.TabIndex = 15;
+            chkTelevisor.Text = "Televisor";
+            chkTelevisor.UseVisualStyleBackColor = true;
+            // 
             // frmReserva
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.AntiqueWhite;
             ClientSize = new Size(800, 519);
+            Controls.Add(chkTelevisor);
+            Controls.Add(chkHeladera);
+            Controls.Add(chkCocina);
             Controls.Add(btnAceptar);
             Controls.Add(txtTelefono);
             Controls.Add(txtNombre);
@@ -211,5 +251,8 @@
         private TextBox txtTelefono;
         private Button btnAceptar;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private CheckBox chkCocina;
+        private CheckBox chkHeladera;
+        private CheckBox chkTelevisor;
     }
 }
