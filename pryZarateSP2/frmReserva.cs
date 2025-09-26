@@ -12,17 +12,12 @@ namespace pryZarateSP2
 {
     public partial class frmReserva : Form
     {
-        const int addedValue = 1;
-
-        enum Precios
-        {
-            A = 20,
-            B = 34,
-            DailyValue = 1,
-            TvValue = 2,
-            KitchenValue = 1,
-        };
-        const float fridgevalue = 1.50f;
+        private const float TIPOA = 20;
+        public const float TIPOB = 34;
+        const float COCINA = 1;
+        const float HELADERA = 1.5f;
+        const float TELEVISOR = 2;
+        const float PORPERSONA = 1;
 
 
 
@@ -33,18 +28,25 @@ namespace pryZarateSP2
 
         private void frmReserva_Load(object sender, EventArgs e)
         {
-            lstTipo.Items.Clear();
-            lstTipo.Items.Add("Tipo A");
-            lstTipo.Items.Add("Tipo B");
-            lstTipo.SelectedIndex = 0;
-            numDias.Text = "1";
-            chkCocina.Checked = false;
-            chkHeladera.Checked = false;
-            chkTelevisor.Checked = false;
-            optEfectivo.Checked = true;
-            txtNombre.Text = "";
-            txtNumero.Text = "";
-            btnAceptar.Enabled = false;
+            {
+                cmbTipo.Items.Clear();
+                cmbTipo.Items.Add("Tipo A");
+                cmbTipo.Items.Add("Tipo B");
+                cmbTipo.SelectedIndex = 0;
+                numDias.Value= 1;
+                chkCocina.Checked = false;
+                chkHeladera.Checked = false;
+                chkTelevisor.Checked = false;
+                optEfectivo.Checked = true;
+                txtNombre.Text = "";
+                txtTelefono.Text = "";
+                cmbTarjeta.Items.Clear();
+                cmbTarjeta.Items.Add("Card Red");
+                cmbTarjeta.Items.Add("Card Green");
+                cmbTarjeta.Items.Add("Card Blue");
+                btnAceptar.Enabled = false;
+            }
+
         }
 
         private void txtDiastxtDias_TextChanged(object sender, EventArgs e)
@@ -56,19 +58,24 @@ namespace pryZarateSP2
         {
 
         }
-         private void txtNumero_KeyPress(object sender, KeyPressEventArgs e)
+        private void txtNumero_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (char.IsNumber(e.KeyChar) || e.KeyChar == Convert.ToChar(Keys.Back))
             {
-                if (char.IsNumber(e.KeyChar) || e.KeyChar == Convert.ToChar(Keys.Back))
-                {
-                    //lblNumero.Text = "soy un numero";
-                    e.Handled = false;
-                }
-                else
-                {
-                    e.Handled = true;
-                    //lblNumero.Text = "otra cosa...";
-                }
+                //lblNumero.Text = "soy un numero";
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+                //lblNumero.Text = "otra cosa...";
             }
         }
+
+        private void cmbTipo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
+}
 
