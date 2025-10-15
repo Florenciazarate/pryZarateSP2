@@ -44,19 +44,18 @@
             cmbTipo = new ComboBox();
             cmbPersonas = new ComboBox();
             numDias = new NumericUpDown();
-            panel3 = new Panel();
-            panel4 = new Panel();
-            mskTelefono = new MaskedTextBox();
             chkTelevisor = new CheckBox();
             chkCocina = new CheckBox();
             chkHeladera = new CheckBox();
             lblAdicionales = new Label();
-            panel1 = new Panel();
-            panel2 = new Panel();
             cmbTarjeta = new ComboBox();
+            mskTelefono = new MaskedTextBox();
+            dgvDatos = new DataGridView();
+            colTipoCabaña = new DataGridViewTextBoxColumn();
+            colPersonas = new DataGridViewTextBoxColumn();
+            colDias = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)numDias).BeginInit();
-            panel4.SuspendLayout();
-            panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvDatos).BeginInit();
             SuspendLayout();
             // 
             // lblDias
@@ -141,7 +140,7 @@
             // 
             // txtNombre
             // 
-            txtNombre.BackColor = Color.BurlyWood;
+            txtNombre.BackColor = Color.Bisque;
             txtNombre.Location = new Point(127, 355);
             txtNombre.Name = "txtNombre";
             txtNombre.Size = new Size(295, 23);
@@ -150,9 +149,9 @@
             // 
             // btnAceptar
             // 
-            btnAceptar.BackColor = Color.Tan;
+            btnAceptar.BackColor = Color.Orange;
             btnAceptar.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnAceptar.Location = new Point(611, 479);
+            btnAceptar.Location = new Point(584, 475);
             btnAceptar.Name = "btnAceptar";
             btnAceptar.Size = new Size(111, 47);
             btnAceptar.TabIndex = 12;
@@ -188,7 +187,8 @@
             // 
             // cmbTipo
             // 
-            cmbTipo.BackColor = Color.BurlyWood;
+            cmbTipo.BackColor = Color.Bisque;
+            cmbTipo.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbTipo.FormattingEnabled = true;
             cmbTipo.Items.AddRange(new object[] { "A", "B" });
             cmbTipo.Location = new Point(109, 100);
@@ -199,7 +199,7 @@
             // 
             // cmbPersonas
             // 
-            cmbPersonas.BackColor = Color.BurlyWood;
+            cmbPersonas.BackColor = Color.Bisque;
             cmbPersonas.FormattingEnabled = true;
             cmbPersonas.Items.AddRange(new object[] { "1", "2", "3", "4", "5", "6", "7", "8" });
             cmbPersonas.Location = new Point(369, 100);
@@ -209,39 +209,12 @@
             // 
             // numDias
             // 
-            numDias.BackColor = Color.BurlyWood;
+            numDias.BackColor = Color.Bisque;
             numDias.Location = new Point(575, 100);
             numDias.Name = "numDias";
             numDias.Size = new Size(120, 23);
             numDias.TabIndex = 20;
             numDias.ValueChanged += numDias_ValueChanged;
-            // 
-            // panel3
-            // 
-            panel3.BackColor = Color.BlanchedAlmond;
-            panel3.Location = new Point(32, 57);
-            panel3.Name = "panel3";
-            panel3.Size = new Size(690, 117);
-            panel3.TabIndex = 22;
-            // 
-            // panel4
-            // 
-            panel4.BackColor = Color.BlanchedAlmond;
-            panel4.Controls.Add(mskTelefono);
-            panel4.Location = new Point(32, 334);
-            panel4.Name = "panel4";
-            panel4.Size = new Size(690, 117);
-            panel4.TabIndex = 23;
-            // 
-            // mskTelefono
-            // 
-            mskTelefono.BackColor = Color.BurlyWood;
-            mskTelefono.Location = new Point(95, 61);
-            mskTelefono.Mask = "000-000-0000";
-            mskTelefono.Name = "mskTelefono";
-            mskTelefono.Size = new Size(189, 23);
-            mskTelefono.TabIndex = 1;
-            mskTelefono.TextChanged += mskTelefono_TextChanged;
             // 
             // chkTelevisor
             // 
@@ -286,32 +259,49 @@
             lblAdicionales.TabIndex = 5;
             lblAdicionales.Text = "Adicionales";
             // 
-            // panel1
-            // 
-            panel1.BackColor = Color.BlanchedAlmond;
-            panel1.Location = new Point(32, 197);
-            panel1.Name = "panel1";
-            panel1.Size = new Size(200, 120);
-            panel1.TabIndex = 0;
-            // 
-            // panel2
-            // 
-            panel2.BackColor = Color.BlanchedAlmond;
-            panel2.Controls.Add(cmbTarjeta);
-            panel2.Location = new Point(246, 197);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(323, 120);
-            panel2.TabIndex = 1;
-            // 
             // cmbTarjeta
             // 
-            cmbTarjeta.BackColor = Color.BurlyWood;
+            cmbTarjeta.BackColor = Color.Bisque;
+            cmbTarjeta.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbTarjeta.FormattingEnabled = true;
             cmbTarjeta.Items.AddRange(new object[] { "Card Red", "Card Green", "Card Blue" });
-            cmbTarjeta.Location = new Point(12, 78);
+            cmbTarjeta.Location = new Point(258, 278);
             cmbTarjeta.Name = "cmbTarjeta";
             cmbTarjeta.Size = new Size(121, 23);
             cmbTarjeta.TabIndex = 24;
+            // 
+            // mskTelefono
+            // 
+            mskTelefono.BackColor = Color.Bisque;
+            mskTelefono.Location = new Point(130, 395);
+            mskTelefono.Mask = "000-000-0000";
+            mskTelefono.Name = "mskTelefono";
+            mskTelefono.Size = new Size(100, 23);
+            mskTelefono.TabIndex = 25;
+            // 
+            // dgvDatos
+            // 
+            dgvDatos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvDatos.Columns.AddRange(new DataGridViewColumn[] { colTipoCabaña, colPersonas, colDias });
+            dgvDatos.Location = new Point(719, 101);
+            dgvDatos.Name = "dgvDatos";
+            dgvDatos.Size = new Size(308, 421);
+            dgvDatos.TabIndex = 26;
+            // 
+            // colTipoCabaña
+            // 
+            colTipoCabaña.HeaderText = "Tipo cabaña";
+            colTipoCabaña.Name = "colTipoCabaña";
+            // 
+            // colPersonas
+            // 
+            colPersonas.HeaderText = "Personas";
+            colPersonas.Name = "colPersonas";
+            // 
+            // colDias
+            // 
+            colDias.HeaderText = "Dias";
+            colDias.Name = "colDias";
             // 
             // frmReserva
             // 
@@ -319,7 +309,10 @@
             AutoScaleMode = AutoScaleMode.Font;
             AutoValidate = AutoValidate.EnablePreventFocusChange;
             BackColor = Color.AntiqueWhite;
-            ClientSize = new Size(760, 580);
+            ClientSize = new Size(1039, 580);
+            Controls.Add(dgvDatos);
+            Controls.Add(mskTelefono);
+            Controls.Add(cmbTarjeta);
             Controls.Add(lblAdicionales);
             Controls.Add(chkHeladera);
             Controls.Add(chkCocina);
@@ -339,10 +332,6 @@
             Controls.Add(lblTipo);
             Controls.Add(lblPersonas);
             Controls.Add(lblDias);
-            Controls.Add(panel3);
-            Controls.Add(panel4);
-            Controls.Add(panel1);
-            Controls.Add(panel2);
             FormBorderStyle = FormBorderStyle.SizableToolWindow;
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "frmReserva";
@@ -350,9 +339,7 @@
             Text = "Reserva cabañas";
             Load += frmReserva_Load;
             ((System.ComponentModel.ISupportInitialize)numDias).EndInit();
-            panel4.ResumeLayout(false);
-            panel4.PerformLayout();
-            panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)dgvDatos).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -373,15 +360,15 @@
         private ComboBox cmbTipo;
         private ComboBox cmbPersonas;
         private NumericUpDown numDias;
-        private Panel panel3;
-        private Panel panel4;
         private CheckBox chkTelevisor;
         private CheckBox chkCocina;
         private CheckBox chkHeladera;
         private Label lblAdicionales;
-        private Panel panel1;
-        private Panel panel2;
         private ComboBox cmbTarjeta;
         private MaskedTextBox mskTelefono;
+        private DataGridView dgvDatos;
+        private DataGridViewTextBoxColumn colTipoCabaña;
+        private DataGridViewTextBoxColumn colPersonas;
+        private DataGridViewTextBoxColumn colDias;
     }
 }
