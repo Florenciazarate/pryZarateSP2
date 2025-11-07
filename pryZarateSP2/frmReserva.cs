@@ -26,7 +26,7 @@ namespace pryZarateSP2
             int cantidad;
             int dias;
         }
-        Reserva [] vecReserva = new Reserva[101];
+        Reserva[] vecReserva = new Reserva[101];
         string[,] matReserva = new string[101, 3];
 
         public frmReserva()
@@ -37,7 +37,7 @@ namespace pryZarateSP2
         private void frmReserva_Load(object sender, EventArgs e)
         {
             CargarDatos();
-            for (int indiceRecorridoFila= 0; indiceRecorridoFila < matReserva.GetLength (0); indiceRecorridoFila ++)
+            for (int indiceRecorridoFila = 0; indiceRecorridoFila < matReserva.GetLength(0); indiceRecorridoFila++)
             {
                 dgvDatos.Rows.Add(matReserva[indiceRecorridoFila, 0],
                 matReserva[indiceRecorridoFila, 1],
@@ -167,7 +167,7 @@ namespace pryZarateSP2
             matReserva[99, 0] = "Tipo B"; matReserva[99, 1] = "1"; matReserva[99, 2] = "15";
             matReserva[100, 0] = "Tipo A"; matReserva[100, 1] = "13"; matReserva[100, 2] = "7";
         }
-            private void cmbTipo_SelectedIndexChanged(object sender, EventArgs e)
+        private void cmbTipo_SelectedIndexChanged(object sender, EventArgs e)
         {
             {
                 int I = 0;
@@ -249,11 +249,11 @@ namespace pryZarateSP2
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-                matReserva[indiceFila, 0] = cmbTipo.Text;
-                matReserva[indiceFila, 1] = cmbPersonas.Text;
-                matReserva[indiceFila, 2] = numDias.Text;
-                indiceFila++;
-                float PrecioBase;
+            matReserva[indiceFila, 0] = cmbTipo.Text;
+            matReserva[indiceFila, 1] = cmbPersonas.Text;
+            matReserva[indiceFila, 2] = numDias.Text;
+            indiceFila++;
+            float PrecioBase;
             float Opcionales;
             float Recargo;
             float Total;
@@ -265,7 +265,7 @@ namespace pryZarateSP2
             {
                 PrecioBase = TIPOB;
             }
-            int Dias = (int)numDias.Value;            
+            int Dias = (int)numDias.Value;
             int Personas = int.Parse(cmbPersonas.Text);
             PrecioBase += PORPERSONA * Personas;
             Opcionales = 0;
@@ -306,6 +306,13 @@ namespace pryZarateSP2
 
         }
 
+        private void txtNombre_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsLetter(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar) && e.KeyChar != (char)Keys.Back)
+            {
+                e.Handled = true; 
+            }
+        }
     }
 }
 

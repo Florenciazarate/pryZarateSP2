@@ -146,6 +146,7 @@
             txtNombre.Size = new Size(295, 23);
             txtNombre.TabIndex = 10;
             txtNombre.TextChanged += txtNombre_TextChanged;
+            txtNombre.KeyPress += txtNombre_KeyPress;
             // 
             // btnAceptar
             // 
@@ -281,10 +282,13 @@
             // 
             // dgvDatos
             // 
+            dgvDatos.AllowUserToAddRows = false;
+            dgvDatos.AllowUserToDeleteRows = false;
             dgvDatos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvDatos.Columns.AddRange(new DataGridViewColumn[] { colTipoCabaña, colPersonas, colDias });
             dgvDatos.Location = new Point(719, 101);
             dgvDatos.Name = "dgvDatos";
+            dgvDatos.ReadOnly = true;
             dgvDatos.Size = new Size(308, 421);
             dgvDatos.TabIndex = 26;
             // 
@@ -292,16 +296,19 @@
             // 
             colTipoCabaña.HeaderText = "Tipo cabaña";
             colTipoCabaña.Name = "colTipoCabaña";
+            colTipoCabaña.ReadOnly = true;
             // 
             // colPersonas
             // 
             colPersonas.HeaderText = "Personas";
             colPersonas.Name = "colPersonas";
+            colPersonas.ReadOnly = true;
             // 
             // colDias
             // 
             colDias.HeaderText = "Dias";
             colDias.Name = "colDias";
+            colDias.ReadOnly = true;
             // 
             // frmReserva
             // 
