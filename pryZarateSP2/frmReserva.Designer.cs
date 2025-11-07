@@ -150,7 +150,8 @@
             // 
             // btnAceptar
             // 
-            btnAceptar.BackColor = Color.Orange;
+            btnAceptar.BackColor = Color.DarkGoldenrod;
+            btnAceptar.FlatStyle = FlatStyle.Popup;
             btnAceptar.Font = new Font("Segoe UI Semibold", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnAceptar.Location = new Point(584, 475);
             btnAceptar.Name = "btnAceptar";
@@ -284,6 +285,7 @@
             // 
             dgvDatos.AllowUserToAddRows = false;
             dgvDatos.AllowUserToDeleteRows = false;
+            dgvDatos.BackgroundColor = Color.AntiqueWhite;
             dgvDatos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvDatos.Columns.AddRange(new DataGridViewColumn[] { colTipoCabaña, colPersonas, colDias });
             dgvDatos.Location = new Point(719, 101);
